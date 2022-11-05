@@ -132,7 +132,12 @@ def is_divisible_by_three(n):
 # 7. Write a function called 'num_spaces' that takes a sentence as one string
 #    and returns the number of spaces.
 
-# def num_spaces()
+def num_spaces(sentence):
+    """Takes a sentence as one string and returns the number of spaces
+    """
+
+    return sentence.count(' ')
+
 
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price
@@ -140,15 +145,41 @@ def is_divisible_by_three(n):
 #    (price + price * tip). **However:** passing in the tip percentage should
 #    be optional; if not given, it should default to 15%.
 
+def total_meal_price(price, tip = .15):
+    """Takes a meal price and an optional tip percentage (defualt is 15).
+    It should return the total amount paid.
+    """
+
+    return price * (1 + tip)
+
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an
 #    argument and returns two pieces of information as strings --- "Positive"
 #    or "Negative" and "Even" or "Odd". The two strings should be returned in
 #    a list.
+
+def sign_and_parity(n):
+    """takes an integer as an argument and returns two pieces of information as strings,
+        Positive or Negative and Even or Odd in a list
+    """
+    num_data = []
+
+    if n < 0: num_data.append("Negative")
+    else: num_data.append("Positive")
+
+    if n % 2 == 0: num_data.append("Even")
+    else: num_data.append("Odd")
+
+    return num_data
+
 #
 #    Then, write code that shows the calling of this function on a number and
 #    unpack what is returned into two variables --- sign and parity (whether
 #    it's even or odd). Print sign and parity.
+
+[sign, parity] = sign_and_parity(14)
+
+print(sign, parity)
 
 
 ###############################################################################
@@ -159,14 +190,34 @@ def is_divisible_by_three(n):
 #    parameters, making it so the job title defaults to "Engineer" if a job
 #    title is not passed in. Return the person's title and name in one string.
 
+def full_title(name, job = "Engineer"):
+    """Takes a name and an optional job title as parameters (defaults to "Engineer").
+    Return. the person's title and name in one string
+    """
+
+    return f"{job} {name}"
+
 # 2. Write a function called write_letter that, given a recipient name & job
 #    title and a sender name, prints the following letter:
 #
 #       Dear JOB_TITLE RECIPIENT_NAME, I think you are amazing!
 #       Sincerely, SENDER_NAME.
-#
+
+def write_letter(name, job, sender):
+    """Takes a recipient name & job title and a sender name, and prints a following letter
+    """
+
+    print(f"Dear {job} {name}, I think you are amazing! Sincerely, {sender}")
+
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
+
+recipient = full_title("Fred", "Doctor")
+
+name, job = recipient.split(" ")
+
+write_letter(name, job, 'Bob')
+
 
 
 ###############################################################################
