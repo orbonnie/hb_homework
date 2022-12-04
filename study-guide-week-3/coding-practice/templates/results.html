@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+    We're so
+    {% for m in moods %}
+      <span>{{m}} </span>
+    {% endfor %}
+    happy to see you!
+</p>
+
+{% endblock %}
